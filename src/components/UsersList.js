@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser, getUsers } from "../redux/Actions/UsersActions";
+import { deleteUser, editUser, getUsers } from "../redux/Actions/UsersActions";
+import EditUser from "./EditUser";
 const UsersList = () => {
 //   const [users, setUsers] = useState([]);
 //   useEffect(() => {
@@ -24,7 +25,7 @@ console.log(users)
     <div style={{display:"flex",flexWrap:"wrap"}} >
 {
     users.map((el)=>
-    
+
     <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
         <Card.Body>
@@ -32,12 +33,14 @@ console.log(users)
           <Card.Text>
           </Card.Text>
           <Button variant="primary" onClick={()=>dispatch(deleteUser(el.id))} >Delete</Button>
+          {/* <Button variant="primary" onClick={()=>dispatch(editUser(el))} >Edit</Button> */}
+          <EditUser el={el}  />
         </Card.Body>
       </Card>
     )
 }
-    
-  
+
+
     </div>
   );
 };

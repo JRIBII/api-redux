@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ADD_USER, DELETE_USER, FAIL_USER, GET_USER } from "../Constants/Constants"
+import { ADD_USER, DELETE_USER, EDIT_USER, FAIL_USER, GET_USER } from "../Constants/Constants"
 
 export const getUsers=()=>async(dispatch)=>{
   try {
@@ -29,5 +29,12 @@ export const deleteUser=(payload)=>{
     return {
         type:DELETE_USER,
         payload
+    }
+}
+export const editUser=(payload)=>{
+  console.log(payload)
+    return {
+      type:EDIT_USER,
+      payload
     }
 }
